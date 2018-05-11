@@ -38,7 +38,6 @@ export default {
     login () {
 
       // 登录操作
-      // if (this.loading) return false
       this.loading = true
       let reqData = 'username=' + this.userName + '&userpwd=' + this.userPwd
       this.Axios.post('/api/server/getkey', reqData).then(rt => {

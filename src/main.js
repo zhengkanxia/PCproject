@@ -6,6 +6,7 @@ import router from './router'
 import iView from 'iview'; // 导入组件库
 import 'iview/dist/styles/iview.css'; // 导入样式
 import Axios from 'axios';
+import './assets/css/public.scss'
 
 Vue.use(iView);
 Vue.config.productionTip = false

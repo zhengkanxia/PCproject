@@ -1,7 +1,6 @@
 <template>
   <div class="home">
-       <h1>深圳市敢为软件技术有限公司</h1>
-      
+     home
 </div>
 
 </template>
@@ -23,4 +22,5 @@ export default {
 
 }
 </script>
+
 

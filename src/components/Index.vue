@@ -1,8 +1,20 @@
 <template>
   <div class="gw-index">
-      <ul>
-          <li v-for="item in navList">{{item.title}}</li>
-      </ul>
+      <Row>
+          <Col span="24" class="header">我是顶层</Col>
+          <Col span="24" class="container">
+              <Row>
+                  <Col span="4" class="nav">
+                    <ul>
+                        <li v-for="item in navList" v-bind:class="{sele: item.selected}" @click="selectFun(item)">{{item.title}}</li>
+                    </ul>
+                  </Col>
+                  <Col span="20" class="content">
+                     <router-view class="router-page" ></router-view>
+                  </Col>
+              </Row>
+          </Col>
+          </Row>
   </div>
 </template>
 
@@ -18,7 +30,7 @@ export default {
             "loading": false,
             "hasChild": false,
             "children": [],
-            "selected": false
+            "selected": true
         },
         {
             "title": "设备数据",
@@ -92,8 +104,17 @@ export default {
     };
   },
   methods: {
+      selectFun(dt){
+          this.navList.forEach(function(ele,index){
+              ele.selected = false;
+          });
+          dt.selected = true;
+          this.$router.push({ path: '/Index/'+dt.href}); 
+      }
   }  
 }
 </script>
 
+
+<style lang="scss" src="../assets/css/index.scss"></style>
 

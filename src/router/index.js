@@ -4,8 +4,20 @@ import Router from 'vue-router'
 import Login from '@/components/Login'
 import Index from '@/components/Index'
 import home from '@/components/Home/home'
+
 import Schedule from '@/components/schedule/Schedule'
 
+import Equips from '@/components/equips/Equips'
+
+import Snapshot from '@/components/snapshot/Snapshot'
+
+import SystemConf from '@/components/systemConf/SystemConf'
+
+import EventQuery from '@/components/eventQuery/EventQuery'
+
+import TimeTask from '@/components/timeTask/TimeTask'
+
+import EquipLinkage from '@/components/equipLinkage/EquipLinkage'
 Vue.use(Router)
 
 export default new Router({
@@ -32,36 +44,36 @@ export default new Router({
           path: 'home',
           component: home
         },
-        // {
-        //   name: 'equip',
-        //   path: 'equips',
-        //   component: Equips
-        // },
-        // {
-        //   path: 'snapshot',
-        //   name: 'snapshot',
-        //   component: Snapshot
-        // },
-        // {
-        //   path: 'systemConf',
-        //   component: SystemConf
-        // },
-        // {
-        //   path: 'eventQuery',
-        //   component: EventQuery
-        // },
+        {
+          name: 'equip',
+          path: 'equips',
+          component: Equips
+        },
+        {
+          path: 'snapshot',
+          name: 'snapshot',
+          component: Snapshot
+        },
+        {
+          path: 'systemConf',
+          component: SystemConf
+        },
+        {
+          path: 'eventQuery',
+          component: EventQuery
+        },
         {
           path: 'schedule',
           component: Schedule
         },
-        // {
-        //   path: 'timeTask',
-        //   component: TimeTask
-        // },
-        // {
-        //   path: 'equipLinkage',
-        //   component: EquipLinkage
-        // }
+        {
+          path: 'timeTask',
+          component: TimeTask
+        },
+        {
+          path: 'equipLinkage',
+          component: EquipLinkage
+        }
       ]
     }
   ]
