@@ -104,6 +104,27 @@ export default {
     };
   },
   methods: {
+      auth(){
+          if(window.localStorage["gw_token"])
+          {
+              this.$store.dispatch("updateData");
+              this.Axios.defaults.headers.common["Authorization"]=this.$store.state.gwToken;
+
+              this.Axios.get("/api/server/auth_name").then(rt => {
+                    let data = rt.data.HttpData;
+                    if (data.code !== 200) {
+                    this.$router.push("/login");
+                    } else {
+                    console.log("密钥验证成功,当前连接的服务:[", data.data, "]");
+                    }
+                }).catch(err => {
+                    console.log(err);
+                    console.log("密钥验证失败，请检查登陆设置!");
+                });
+          }
+          else
+          {this.$router.push("/");}
+      },
       selectFun(dt){
           this.navList.forEach(function(ele,index){
               ele.selected = false;
@@ -111,7 +132,10 @@ export default {
           dt.selected = true;
           this.$router.push({ path: '/Index/'+dt.href}); 
       }
-  }  
+  },
+  created(){
+   this.auth(); 
+  },
 }
 </script>
 

@@ -48,6 +48,10 @@ export default {
             let key = data.data
             let gwToken = key.appkey + '-' + key.infokey
             window.localStorage.setItem('gw_token', gwToken)
+
+            this.$store.dispatch('updateData')
+            
+            this.Axios.defaults.headers.common['Authorization'] = this.$store.state.gwToken
             this.userName = ''
             this.userPwd = ''
             this.$router.replace('/index');
